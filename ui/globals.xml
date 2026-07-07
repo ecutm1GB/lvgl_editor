@@ -1,0 +1,43 @@
+<globals>
+	<api>
+		<!-- Add <enumdefs> here -->
+	</api>
+
+	<consts>
+		<!-- Colors from the mono (black/white) theme used on the real hardware -->
+		<color name="ink" value="0x000000" />
+		<color name="paper" value="0xffffff" />
+	</consts>
+
+	<styles>
+		<!-- Shared button look, mirrors style_btn / style_btn_pressed in theme.c -->
+		<style name="style_nav_button" radius="10" border_width="3" border_color="#ink" bg_color="#paper" />
+		<style name="style_nav_button_pressed" bg_color="#ink" />
+		<style name="style_nav_button_label_pressed" text_color="#paper" />
+
+		<!-- Shared progress-bar look, mirrors style_bar_bg / style_bar_indic in theme.c -->
+		<style name="style_bar_track" border_color="#ink" border_width="2" pad_all="6" radius="6" bg_opa="0" />
+		<style name="style_bar_fill" bg_opa="100%" bg_color="#ink" radius="3" />
+	</styles>
+
+	<subjects>
+		<!-- Add <int>, <string>, or <float> subjects here -->
+	</subjects>
+
+	<images>
+		<!-- Greaseboss logo, decoded from the firmware's indexed_1bit greaseboss.c image data -->
+		<file name="greaseboss" src_path="images/greaseboss.png" />
+		<!-- Lock icon used on the route order screen -->
+		<file name="lock_simple" src_path="images/lock_simple.png" />
+	</images>
+
+	<fonts>
+		<!-- Recreates lv_font_montserrat_24 / _30 / _48 used throughout the firmware UI.
+		     Only the ASCII range is included since that's all the current screens use;
+		     the LV_SYMBOL_* icon glyphs (battery/sync/warning) are not part of this TTF
+		     and are represented as plain text placeholders in the status bar instead. -->
+		<bin name="montserrat_24" as_file="false" bpp="4" src_path="fonts/Montserrat_Medium.ttf" size="24" range="0x20-0x7f" />
+		<bin name="montserrat_30" as_file="false" bpp="4" src_path="fonts/Montserrat_Medium.ttf" size="30" range="0x20-0x7f" />
+		<bin name="montserrat_48" as_file="false" bpp="4" src_path="fonts/Montserrat_Medium.ttf" size="48" range="0x20-0x7f" />
+	</fonts>
+</globals>

@@ -1,0 +1,11 @@
+<!-- Recreates screen_deep_sleep.c -->
+<screen>
+	<view width="480" height="272">
+		<lv_image name="splash_logo" align="top_left" x="20" y="50" src="greaseboss" />
+
+		<lv_label name="label"
+			align="bottom_left" x="0" y="-30" width="400" height="50"
+			long_mode="clip" style_text_align="center"
+			text="GOING TO SLEEP..." />
+	</view>
+</screen>

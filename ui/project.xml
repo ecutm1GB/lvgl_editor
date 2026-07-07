@@ -1,0 +1,7 @@
+<project name="headunit_ui" lvgl_version="9.5.0">
+	<targets>
+		<target name="head_unit_display">
+			<display width="480" height="272" />
+		</target>
+	</targets>
+</project>

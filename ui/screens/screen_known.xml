@@ -1,0 +1,36 @@
+<!-- Recreates screen_known.c: shows the RFID-identified task (2 text lines),
+     dispensed volume, and a progress bar with an overlaid status label
+     ("OVER GREASING" / "COMPLETE" / "NO TASK FOUND" / "WRONG GREASE" / "PURGE"
+     depending on state - all set at runtime by screen_draw_known_update()). -->
+<screen>
+	<view width="480" height="272">
+		<status_bar title_text="TASK IN PROGRESS" />
+
+		<lv_label name="line1_label"
+			align="top_left" x="10" y="53" width="380" height="30"
+			long_mode="dots" style_text_align="center"
+			text="Asset: Excavator 12" />
+
+		<lv_label name="line2_label"
+			align="top_left" x="10" y="80" width="380" height="30"
+			long_mode="dots" style_text_align="center"
+			text="Point: Boom Pivot" />
+
+		<lv_label name="volume_label"
+			align="bottom_left" x="0" y="-70" width="400" height="50"
+			style_text_align="center" style_text_font="montserrat_48"
+			text="1.2 / 5.0 CC" />
+
+		<lv_bar name="bar" width="360" height="50" align="bottom_left" x="20" y="-10" value="40">
+			<style name="style_bar_track" />
+			<style name="style_bar_fill" selector="indicator" />
+		</lv_bar>
+
+		<lv_label name="bar_label"
+			align="bottom_left" x="20" y="-23" width="360" height="24"
+			style_text_align="center" style_text_color="#paper"
+			text="" />
+
+		<nav_buttons />
+	</view>
+</screen>

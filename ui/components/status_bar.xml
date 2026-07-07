@@ -1,0 +1,45 @@
+<!-- Recreates screen_status_bar.c: a title/sync/battery row sharing one text
+     box (10,5, 380x24) at three alignments, with a divider line underneath.
+
+     The firmware fills sync_label/battery_label with LV_SYMBOL_* icon glyphs
+     (battery level, charging, sync state) computed at runtime. Those glyphs
+     aren't in this project's font, so plain text placeholders stand in here -
+     the actual icon logic stays in screen_status_bar.c on the device. -->
+<component>
+	<api>
+		<prop name="title_text" type="string" default="ROUTE ORDER" />
+	</api>
+
+	<styles>
+		<style name="style_bar_text" text_font="montserrat_24" />
+	</styles>
+
+	<view extends="lv_obj" width="480" height="40" style_bg_opa="0" style_border_width="0" style_pad_all="0">
+		<lv_label name="sync_label"
+			align="top_left" x="10" y="5" width="380" height="24"
+			long_mode="clip" style_text_align="left"
+			text="SYNCED">
+			<style name="style_bar_text" />
+		</lv_label>
+
+		<lv_label name="title_label"
+			align="top_left" x="10" y="5" width="380" height="24"
+			long_mode="clip" style_text_align="center"
+			text="$title_text">
+			<style name="style_bar_text" />
+		</lv_label>
+
+		<lv_label name="battery_label"
+			align="top_left" x="10" y="5" width="380" height="24"
+			long_mode="clip" style_text_align="right"
+			text="100%">
+			<style name="style_bar_text" />
+		</lv_label>
+
+		<lv_line name="title_line"
+			width="380" height="4"
+			points="(0 2) (380 2)"
+			align="top_left" x="10" y="32"
+			style_line_width="2" style_line_color="#ink" style_line_rounded="false" />
+	</view>
+</component>

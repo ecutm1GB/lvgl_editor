@@ -1,0 +1,28 @@
+<!-- Recreates screen_unknown.c: shown when an RFID tag is scanned that isn't
+     recognised. QR code + the 24-hex-digit EPC split across two labels, plus
+     a live flow readout. -->
+<screen>
+	<view width="480" height="272">
+		<status_bar title_text="UNKNOWN TAG" />
+
+		<lv_qrcode name="qr" size="150" align="top_left" x="26" y="60"
+			dark_color="#ink" light_color="#paper" data="E2001234567890ABCDEF01234" />
+
+		<lv_label name="flow_label"
+			align="top_left" x="180" y="80" width="220" height="50"
+			long_mode="clip" style_text_align="center" style_text_font="montserrat_48"
+			text="0.0 CC" />
+
+		<lv_label name="rfid_label1"
+			align="top_left" x="180" y="140" width="220" height="25"
+			style_text_align="center"
+			text="E200 1234 5678" />
+
+		<lv_label name="rfid_label2"
+			align="top_left" x="180" y="165" width="220" height="25"
+			style_text_align="center"
+			text="90AB CDEF 0123" />
+
+		<nav_buttons />
+	</view>
+</screen>

@@ -1,0 +1,60 @@
+<!-- Recreates screen_route_order.c. That file draws the SAME set of widgets in
+     two different arrangements depending on state, toggled at runtime:
+
+       "normal" state  - location/asset/point/volume/summary labels + lock
+                          icon are shown, the progress bar is hidden. The
+                          summary label also flashes on/off every 500ms via a
+                          timer, and restyles itself for 3 sub-cases (task in
+                          progress / no tasks due / all complete).
+       "updating" state - (CONFIG_HU_ROUTE_ORDER only) everything above is
+                          hidden and a labeled progress bar is shown instead.
+
+     This XML shows the "normal / task in progress" arrangement, since that's
+     the primary layout. The progress bar is included but hidden (matching
+     screen_draw_route_order_init's default state) so it's still there to
+     edit. Blinking/timer behaviour and the state-swapping logic itself live
+     in firmware, not in this UI project. -->
+<screen>
+	<view width="480" height="272">
+		<status_bar title_text="ROUTE ORDER" />
+
+		<lv_label name="location_label"
+			align="top_mid" y="50" width="380" height="30"
+			long_mode="scroll_circular" style_text_align="center"
+			text="Depot A - Yard 3" />
+
+		<lv_label name="asset_label"
+			align="top_mid" y="80" width="380" height="30"
+			long_mode="scroll_circular" style_text_align="center"
+			text="Excavator 12" />
+
+		<lv_label name="point_label"
+			align="top_mid" y="110" width="380" height="30"
+			long_mode="scroll_circular" style_text_align="center"
+			text="Boom Pivot" />
+
+		<lv_label name="volume_label"
+			align="top_mid" y="140" width="380" height="30"
+			long_mode="dots" style_text_align="center"
+			text="1.5 / 5.0 CC" />
+
+		<lv_label name="summary_label"
+			align="top_mid" y="170" width="380" height="30"
+			long_mode="scroll_circular" style_text_align="center" style_text_font="montserrat_24"
+			text="1 / 5 COMPLETE" />
+
+		<lv_image name="lock_icon" align="top_mid" y="200" src="lock_simple" />
+
+		<lv_bar name="bar" width="360" height="50" align="bottom_left" x="20" y="-60" value="0" hidden="true">
+			<style name="style_bar_track" />
+			<style name="style_bar_fill" selector="indicator" />
+		</lv_bar>
+
+		<lv_label name="bar_label"
+			align="bottom_left" x="20" y="-120" width="360" height="24"
+			style_text_align="center" style_text_color="#ink"
+			text="" hidden="true" />
+
+		<nav_buttons />
+	</view>
+</screen>

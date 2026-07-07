@@ -1,0 +1,19 @@
+<!-- Recreates screen_no_tag.c: shown while dispensing with no RFID tag
+     scanned yet - just a running volume readout and a progress bar. -->
+<screen>
+	<view width="480" height="272">
+		<status_bar title_text="NO TAG" />
+
+		<lv_label name="volume_label"
+			align="top_left" x="0" y="70" width="400" height="50"
+			style_text_align="center" style_text_font="montserrat_48"
+			text="0.0 CC" />
+
+		<lv_bar name="bar" width="360" height="50" align="top_left" x="20" y="135" value="0">
+			<style name="style_bar_track" />
+			<style name="style_bar_fill" selector="indicator" />
+		</lv_bar>
+
+		<nav_buttons />
+	</view>
+</screen>

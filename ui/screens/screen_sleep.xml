@@ -1,0 +1,14 @@
+<!-- Recreates screen_sleep.c -->
+<screen>
+	<view width="480" height="272">
+		<lv_label name="sleep_text"
+			align="center" y="-10" width="360" height="62"
+			long_mode="wrap" style_text_align="center" style_text_font="montserrat_24"
+			text="SLEEPING" />
+
+		<lv_label name="sync_text"
+			align="center" y="50" width="360" height="62"
+			long_mode="wrap" style_text_align="center" style_text_font="montserrat_30"
+			text="Last synced 5m ago" />
+	</view>
+</screen>

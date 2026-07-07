@@ -1,0 +1,16 @@
+<!-- Recreates screen_splash.c -->
+<screen>
+	<view width="480" height="272">
+		<lv_image name="splash_logo" align="top_left" x="20" y="50" src="greaseboss" />
+
+		<lv_label name="version_label"
+			align="bottom_left" x="0" y="-30" width="400" height="24"
+			long_mode="clip" style_text_align="center"
+			text="v2.4.0" />
+
+		<lv_label name="serial_no_label"
+			align="bottom_left" x="0" y="0" width="400" height="24"
+			style_text_align="center"
+			text="SN: 000000" />
+	</view>
+</screen>
